@@ -9,3 +9,4 @@
  * selenium	3.141.0
  * requests	2.23.0	 
  * PyQt5 5.13.x or newer，and pyqt5tools
+ * pytesseract 0.3.3

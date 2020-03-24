@@ -14,6 +14,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
  * selenium	3.141.0
  * requests	2.23.0	 
  * PyQt5 5.13.x以上，及对应pyqt5tools
+ * pytesseract 0.3.3
  
  ### 功能介绍
  * 一键连接Zoom网课会议室
