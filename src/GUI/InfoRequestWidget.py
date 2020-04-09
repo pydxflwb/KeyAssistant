@@ -69,7 +69,6 @@ class InfoRequestWidget(QWidget):
             returnText.append(password)
             returnText.append(self.Browser.currentIndex())
             self.signal_returnText.emit(returnText)
-            self.close()
         else:
             QMessageBox.warning(self, 'Invalid Input !',
                         "No username or password",

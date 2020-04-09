@@ -67,6 +67,7 @@ class MainWindow(QMainWindow):
         self.toolbar.setStyleSheet(""" QToolBar {border: 2px outset gray;}  """)
 
     def getInputData(self, ilist):
+        self.Dock_OneKey.close()
         with open(setting_file, 'r') as f:
             self.datastring = json.load(f)
         f.close()
