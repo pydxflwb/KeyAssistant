@@ -20,15 +20,15 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
  * baidu-aip (百度提供的OCR接口)
  * Pywin32
  * pyautogui
- * pyHook(Python 3版本可能需要.whl)
- * pyUserInput
+ * pyHook(Python 3版本可能需要.whl，已提供)
+ * pyUserInput(要求安装Pywin32和pyHook)
  
  ## 安装
  * pip install -r requirements.txt / conda install -r requirements.txt
  * Chrome浏览器需要Chrome driver。在Chrome网址栏中输入[Chrome://version](Chrome://version)查看版本，在
  [Chrome Driver下载地址](http://chromedriver.storage.googleapis.com/index.html)下载对应版本（最接近）的Driver，
 并将其路径加入系统变量Path。（Selenium默认支持Firefox，IE/Edge/Chrome需安装对应driver）
- * 对于部分库(pyHook)，Python3 pip可能无法安装，请下载使用[whl文件](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyHook)安装（或者使用conda安装）
+ * 对于部分库(pyHook)，Python3 pip可能无法安装，请下载使用[whl文件](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyHook)安装（或者使用conda安装）（现在pyHook文件夹为大家提供了1.5.1版本x64的安装包，请自行选用）
  
  ## 功能介绍
  
