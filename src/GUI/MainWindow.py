@@ -37,6 +37,7 @@ class MainWindow(QMainWindow):
         self.Dock_InfoReq.setAllowedAreas(Qt.LeftDockWidgetArea)
         self.addDockWidget(Qt.LeftDockWidgetArea, self.Dock_InfoReq)
         self.Dock_InfoReq.close()
+        self.infoReq.signal_cancel.connect(self.closeReqDock)
 
         self.oneKey = OneKey.OneKeyWidget(self.file1, self.file2, self.pic)
         self.Dock_OneKey = QDockWidget('一键上课模块', self)
@@ -65,7 +66,11 @@ class MainWindow(QMainWindow):
         self.toolbar.addAction(self.action_InfoRequest)
         self.toolbar.addAction(self.action_OneKey)
         self.toolbar.setStyleSheet(""" QToolBar {border: 2px outset gray;}  """)
-
+    
+    def closeReqDock(self, flag):
+        if flag:
+            self.Dock_InfoReq.close()
+    
     def getInputData(self, ilist):
         self.Dock_OneKey.close()
         with open(setting_file, 'r') as f:

@@ -7,7 +7,8 @@ import sys
 class InfoRequestWidget(QWidget):
     # pyqtSignals to connect widgets
     signal_returnText = pyqtSignal(list)    # to get username and password
-
+    signal_cancel = pyqtSignal(bool)
+    
     def __init__(self):
         super(InfoRequestWidget, self).__init__()
         self.initUI()
@@ -44,7 +45,7 @@ class InfoRequestWidget(QWidget):
 
         self.cancelButton = QPushButton("Cancel")
         self.cancelButton.setFont(QFont("Consolas", 9))
-        self.cancelButton.clicked.connect(self.close)
+        self.cancelButton.clicked.connect(self.closeDock)
 
         # Buttons Layout
         self.buttonLayout = QHBoxLayout()
@@ -74,6 +75,10 @@ class InfoRequestWidget(QWidget):
                         "No username or password",
                         QMessageBox.Yes)
 
+    def closeDock(self):
+        self.signal_cancel.emit(True)
+            
+
 
 # A Self-Defined Input Widget Template (More arguments excepted)
 class SingleInputWidget(QWidget):
@@ -93,6 +98,8 @@ class SingleInputWidget(QWidget):
 
     def returnText(self):
         return self.Edit.text()
+
+    
 
 
 if __name__ == "__main__":
