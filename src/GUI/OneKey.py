@@ -1,12 +1,12 @@
 import datetime
-import src.Functions.get_curricular_data as data
-import src.Functions.zoom_signin as zoom
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import sys, json
+import os, sys, json
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 import webbrowser
-
+import Functions.get_curricular_data as data
+import Functions.zoom_signin as zoom
 
 class OneKeyWidget(QWidget):
     def __init__(self, file, timefile, pic_dir):
@@ -18,7 +18,6 @@ class OneKeyWidget(QWidget):
         self.setWindowIcon(QIcon("../settings/key.png"))
         self.Layout = QVBoxLayout()
         self.oneLayout = QHBoxLayout()
-        self.OnekeyButton = QPushButton("一键上课")
         self.timelabel1 = QLabel('')
         self.timelabel2 = QLabel('')
         self.timelabel1.setFont(QFont('FangSong', 16, 63))
@@ -60,13 +59,16 @@ class OneKeyWidget(QWidget):
         self.nowhour = datetime.datetime.now().hour
         self.nowmin = datetime.datetime.now().minute
         self.nowweekday = datetime.datetime.now().isoweekday()
-        self.returndata = zoom.showcurri_now(self.file, self.timefile, self.nowweekday, [self.nowhour, self.nowmin])
-        self.returndata = self.returndata[0]
-        if self.returndata == '':
-            self.returndata = "暂时无课"
+        try:
+            self.returndata = zoom.showcurri_now(self.file, self.timefile, self.nowweekday, [self.nowhour, self.nowmin])
+            self.returndata = self.returndata[0]
+            if self.returndata == '':
+                self.returndata = "暂时无课"
+        except:
+            self.returndata = "无课程信息，请获取"
 
         self.currilabel.setText(self.returndata)
-
+        
     def connectToZoom(self):
         self.connect_flag = zoom.signin_nowtime(self.picdir, self.file, self.timefile, self.nowweekday, [self.nowhour, self.nowmin])
         self.judgeConnect()
@@ -95,6 +97,9 @@ class OneKeyWidget(QWidget):
                 webbrowser.open('github.com/pydxflwb/KeyAssistant/issues')
                 self.close()
 
+    def fresh(self):
+        self.currishow()
+        
 
 if __name__ == "__main__":
     setting_file = "../settings/setting.json"

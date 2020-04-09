@@ -1,9 +1,10 @@
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QIcon, QColor, QFont
-import sys, json
+import sys, os, json
 from PyQt5.QtWidgets import *
-from src.GUI import InfoRequestWidget, CentralWidget, OneKey
-import src.Functions.get_curricular_data as data
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
+from GUI import InfoRequestWidget, CentralWidget, OneKey
+import Functions.get_curricular_data as data
 from selenium import webdriver
 
 
@@ -53,6 +54,7 @@ class MainWindow(QMainWindow):
         self.action_OneKey = QAction(QIcon("../settings/key.png"), "&一键上课界面", self)
         self.action_OneKey.setShortcut('Ctrl+O')
         self.action_OneKey.triggered.connect(self.Dock_OneKey.show)
+        self.action_OneKey.triggered.connect(self.oneKey.fresh)
 
         self.action_InfoRequest = QAction(QIcon("../settings/table.png"), "&获取课表信息", self)
         self.action_InfoRequest.setShortcut('Ctrl+R')
@@ -62,11 +64,9 @@ class MainWindow(QMainWindow):
         self.addToolBar(Qt.TopToolBarArea,self.toolbar)
         self.toolbar.addAction(self.action_InfoRequest)
         self.toolbar.addAction(self.action_OneKey)
-        self.toolbar.setStyleSheet(""" QToolBar {border: 2px outset gray;}                                  
-                                            """)
+        self.toolbar.setStyleSheet(""" QToolBar {border: 2px outset gray;}  """)
 
     def getInputData(self, ilist):
-        print(ilist[2])
         with open(setting_file, 'r') as f:
             self.datastring = json.load(f)
         f.close()
@@ -113,8 +113,8 @@ if __name__ == "__main__":
             datastring = json.load(f)
         f.close()
     except FileNotFoundError:
-        datastring = {"currifile":'../settings/curricular.json', "timefile":'../settings/time_setting.json',
-                      "pic_dir":'../settings/1.png','kbcx_url':'http://kbcx.sjtu.edu.cn/jaccountlogin',
+        datastring = {"currifile":'settings/curricular.json', "timefile":'settings/time_setting.json',
+                      "pic_dir":'settings/1.png','kbcx_url':'http://kbcx.sjtu.edu.cn/jaccountlogin',
                       'sjtu_captcha_url':"https://jaccount.sjtu.edu.cn/jaccount/captcha",
                       'url1':"http://kbcx.sjtu.edu.cn/kbcx/xskbcx_cxXskbcxIndex.html?gnmkdm=N2151&layout=default",
                       'sjtu_excepted_url':"http://kbcx.sjtu.edu.cn/xtgl/index_initMenu.html"

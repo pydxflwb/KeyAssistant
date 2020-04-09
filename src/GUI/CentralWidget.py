@@ -1,10 +1,11 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from src.GUI import CurricularWidget
-import sys, json ,webbrowser
-import src.Functions.get_curricular_data as data
-import src.Functions.zoom_signin as zoom
+import os, sys, json, webbrowser
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
+from GUI import CurricularWidget
+import Functions.get_curricular_data as data
+import Functions.zoom_signin as zoom
 
 
 class CentralWidget(QWidget):

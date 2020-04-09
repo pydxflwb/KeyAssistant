@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtGui import *
-import sys, time
+import os, sys, time
 import json
-import src.Functions.get_curricular_data as data
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
+import Functions.get_curricular_data as data
 curri_label = ['课程信息', '课程时间', 'Zoom会议信息', '自动打开时间' ]
 
 

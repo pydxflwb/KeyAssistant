@@ -66,10 +66,10 @@ def showcurri_now(file, timefile, weekday, nowtime):
     classdata=''
     roomnum=''
     password=''
-    with open(file) as f:
+    with open(file,'r') as f:
         raw_curri = json.load(f)
     f.close()
-    with open(timefile) as tif:
+    with open(timefile, 'r') as tif:
         raw_time = json.load(tif)
     tif.close()
     for time0 in raw_time:
