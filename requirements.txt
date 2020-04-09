@@ -1,0 +1,8 @@
+selenium
+requests
+PyQt5
+baidu-aip
+Pywin32
+pyautogui
+pyHook
+pyUserInput

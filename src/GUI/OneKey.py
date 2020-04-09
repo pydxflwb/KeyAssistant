@@ -4,7 +4,7 @@ import src.Functions.zoom_signin as zoom
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import sys
+import sys, json
 import webbrowser
 
 
@@ -14,6 +14,8 @@ class OneKeyWidget(QWidget):
         self.initUI(file, timefile, pic_dir)
 
     def initUI(self, file, timefile, pic_dir):
+        self.setWindowTitle("OneKeyWindow")
+        self.setWindowIcon(QIcon("../settings/key.png"))
         self.Layout = QVBoxLayout()
         self.oneLayout = QHBoxLayout()
         self.OnekeyButton = QPushButton("一键上课")
@@ -67,6 +69,9 @@ class OneKeyWidget(QWidget):
 
     def connectToZoom(self):
         self.connect_flag = zoom.signin_nowtime(self.picdir, self.file, self.timefile, self.nowweekday, [self.nowhour, self.nowmin])
+        self.judgeConnect()
+
+    def judgeConnect(self):
         if self.connect_flag == 0:
             QMessageBox.infomation(self, "No Currilum Now!", "现在没有要上的课哦！", QMessageBox.Yes)
         elif self.connect_flag == 1:
@@ -76,7 +81,7 @@ class OneKeyWidget(QWidget):
                 self.close()
         elif self.connect_flag == -1:
             QMessageBox.warning(self, "Error: Timeout or Occupied!", "连接失败，可能原因是:\n1.网络连接时间过长，请在Z"
-                                                                     "oom启动后重新启动本程序\n2.当前Zoom已经打开了一个"
+                                                                     "oom启动后重新点击连接\n2.当前Zoom已经打开了一个"
                                                                      "会议", QMessageBox.Yes)
         else:
             reply = QMessageBox.critical(self, "Error Occured", "发生了一个未知错误！请重启程序\n发现问题？联系开发者\n"
@@ -92,10 +97,25 @@ class OneKeyWidget(QWidget):
 
 
 if __name__ == "__main__":
+    setting_file = "../settings/setting.json"
+    try:
+        with open(setting_file, 'r') as f:
+            datastring = json.load(f)
+    except FileNotFoundError:
+        datastring = {"currifile": '../settings/curricular.json', "timefile": '../settings/time_setting.json',
+                      "pic_dir": '../settings/1.png', 'kbcx_url': 'http://kbcx.sjtu.edu.cn/jaccountlogin',
+                      'sjtu_captcha_url': "https://jaccount.sjtu.edu.cn/jaccount/captcha",
+                      'url1': "http://kbcx.sjtu.edu.cn/kbcx/xskbcx_cxXskbcxIndex.html?gnmkdm=N2151&layout=default",
+                      'sjtu_excepted_url': "http://kbcx.sjtu.edu.cn/xtgl/index_initMenu.html"
+                      }
+        with open(setting_file, 'w') as f:
+            f.write(json.dumps(datastring))
+        f.close()
+
     app = QApplication(sys.argv)
-    file1 = '../settings/curricular.json'
-    file2 = '../settings/time_setting.json'
-    pic = '../settings/1.png'
-    one = OneKeyWidget(file1, file2, pic)
+    file1 = datastring['currifile']
+    file2 = datastring['timefile']
+    pic_dir = datastring['pic_dir']
+    one = OneKeyWidget(file1, file2, pic_dir)
     one.show()
     sys.exit(app.exec_())

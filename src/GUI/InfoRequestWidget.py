@@ -29,11 +29,8 @@ class InfoRequestWidget(QWidget):
         self.BrLabel.setFont(QFont("Consolas", 9))
         self.Browser = QComboBox(self)
         self.Browser.setFont(QFont("Consolas", 9))
-        self.Browser.addItem(' ')
         self.Browser.addItem('Chrome')
         self.Browser.addItem('Firefox')
-        self.Browser.addItem('Edge')
-        self.Browser.addItem('IE')
         self.comboLayout.addWidget(self.BrLabel)
         self.comboLayout.addWidget(self.Browser)
         self.Br = QWidget()
@@ -70,6 +67,7 @@ class InfoRequestWidget(QWidget):
             returnText = []
             returnText.append(username)
             returnText.append(password)
+            returnText.append(self.Browser.currentIndex())
             self.signal_returnText.emit(returnText)
             self.close()
         else:
