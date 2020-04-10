@@ -13,20 +13,24 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
             烦请大家使用Python解释器运行程序，或者使用.bat文件，均在/src/GUI中，可以创建快捷方式放到桌面            
  * 2020.04.10: __经过一些测试，解答一些配置过程中出现的问题__
             
-  1.使用conda虚拟环境安装库和使用时，使用.bat运行的方法：编辑/src/GUI下的两个.bat文件，在两行代码中间插入
+   1.使用conda虚拟环境安装库和使用时，使用.bat运行的方法：编辑/src/GUI下的两个.bat文件，在两行代码中间插入
   
               call activate 你运行本程序的虚拟环境名称
-   该方法需要conda加入环境变量
+    该方法需要conda加入环境变量
             
-  2.关于chromedriver不在路径中：如果填写学号和密码连接SJTU总是提示超时，请检查chromedriver
+   2.关于chromedriver不在路径中：如果填写学号和密码连接SJTU总是提示超时，请检查chromedriver
+      
       * 是否下载的是对应自己Chrome版本的chromedriver，并把chromedriver.exe所处文件夹的路径添加到了环境变量
       * Python环境放在Python文件夹下，conda则放在conda文件夹下
       * 如果还不能使用，请[修改代码](https://github.com/pydxflwb/KeyAssistant/blob/261a81c0b417f124d68a51a0bb6af3d3213fe0d9/src/GUI/MainWindow.py#L81)
                 修改webdriver.Chrome(executable_path='你的chromedriver所在路径')
       * 直接提出issues或者联络我。若您有兴趣，也可对InfoRequestWidget.py源码部分的try-except相关代码修改掉，进行debug
                 
-  3.关于无响应和超时等待的一点说明
-    我暂时没有使用QThread进行多线程处理，以防止等待时无响应。但无响应时程序没有发生问题，它只是在反复等待和请求，在cmd中你可以看见打印出来的等待轮次，所以请耐心等待或者直接关闭程序，检查Zoom状况后再运行
+   3.关于无响应和超时等待的一点说明
+    
+                        我暂时没有使用QThread进行多线程处理，以防止等待时无响应
+                        但无响应时程序没有发生问题，它只是在反复等待和请求，在cmd中你可以看见打印出来的等待轮次
+                        所以请耐心等待或者直接关闭程序，检查Zoom状况后再运行
                 
 
  ## 运行环境及库依赖
