@@ -92,4 +92,5 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
  欢迎提交issue! 欢迎使用和改进！
  
  本文档最近更新日期: April 10 2020
+ 
  License: MIT License
