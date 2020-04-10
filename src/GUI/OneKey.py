@@ -75,7 +75,7 @@ class OneKeyWidget(QWidget):
 
     def judgeConnect(self):
         if self.connect_flag == 0:
-            QMessageBox.infomation(self, "No Currilum Now!", "现在没有要上的课哦！", QMessageBox.Yes)
+            QMessageBox.information(self, "No Currilum Now!", "现在没有要上的课哦！", QMessageBox.Yes)
         elif self.connect_flag == 1:
             Reply = QMessageBox.information(self, "Connected", "已连接，点击Yes自动关闭程序",
                                         QMessageBox.Yes| QMessageBox.No, QMessageBox.No)
