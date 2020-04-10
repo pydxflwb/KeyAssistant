@@ -11,8 +11,17 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
             当前版本提供基本使用功能
             因为库很多，经过打包后程序文件很大（200MB），运行速度也受较大影响，因此Github上不提供exe文件
             烦请大家使用Python解释器运行程序，或者使用.bat文件，均在/src/GUI中，可以创建快捷方式放到桌面            
- 
- 
+ * 2020.04.10: __经过一些测试，解答一些配置过程中出现的问题__
+            
+            1.使用conda虚拟环境安装库和使用时，使用.bat运行的方法：编辑/src/GUI下的两个.bat文件，在两行代码中间插入
+                        call activate 你运行本程序的虚拟环境名称
+              该方法需要conda加入环境变量
+            
+            2.关于chromedriver不在路径中：如果填写学号和密码连接SJTU总是提示超时，请检查chromedriver
+                (1) 是否下载的是对应自己Chrome版本的chromedriver，并把chromedriver.exe所处文件夹的路径添加到了环境变量
+                (2) 如果还不能使用，请修改代码：
+                
+
  ## 运行环境及库依赖
  （目前仅适用于Windows 10系统，使用Mac的同学实在抱歉）
  * Python 3.5, 3.6, 3.7（推荐3.6.x）
@@ -28,8 +37,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
  ## 安装
  * pip install -r requirements.txt / conda install -r requirements.txt
  * Chrome浏览器需要Chrome driver。在Chrome网址栏中输入[Chrome://version](Chrome://version)查看版本，在
- [Chrome Driver下载地址](http://chromedriver.storage.googleapis.com/index.html)下载对应版本（最接近）的Driver，将其放到Chrome.exe的路径，
-并将该路径加入系统变量Path。（Selenium默认支持Firefox，IE/Edge/Chrome需安装对应driver）
+ [Chrome Driver下载地址](http://chromedriver.storage.googleapis.com/index.html)下载对应版本（最接近）的Driver，并将chromedriver对应的文件夹路径加入系统变量Path；推荐放在Chrome.exe的文件夹下。（Selenium默认支持Firefox，Chrome需安装对应driver）
  * 对于部分库(pyHook)，Python3 pip可能无法安装，请下载使用[whl文件](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyHook)安装（或者使用conda安装）（现在pyHook文件夹为大家提供了1.5.1版本x64的安装包，请自行选用）
  
  ## 功能介绍
