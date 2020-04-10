@@ -19,7 +19,13 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
             
             2.关于chromedriver不在路径中：如果填写学号和密码连接SJTU总是提示超时，请检查chromedriver
                 (1) 是否下载的是对应自己Chrome版本的chromedriver，并把chromedriver.exe所处文件夹的路径添加到了环境变量
-                (2) 如果还不能使用，请修改代码：
+                (2) Python环境放在Python文件夹下，conda则放在conda文件夹下
+                (3) 如果还不能使用，请修改代码：                          https://github.com/pydxflwb/KeyAssistant/blob/261a81c0b417f124d68a51a0bb6af3d3213fe0d9/src/GUI/MainWindow.py#L81
+                修改webdriver.Chrome(executable_path='你的chromedriver所在路径')
+                (4) 直接提出issues或者联络我。若您有兴趣，也可对InfoRequestWidget.py源码部分的try-except相关代码修改掉，进行debug
+                
+            3.关于无响应和超时等待的一点说明
+                我暂时没有使用QThread进行多线程处理，以防止等待时无响应。但无响应时程序没有发生问题，它只是在反复等待和请求，在cmd中你可以看见打印出来的等待轮次，所以请耐心等待或者直接关闭程序，检查Zoom状况后再运行
                 
 
  ## 运行环境及库依赖
@@ -37,7 +43,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
  ## 安装
  * pip install -r requirements.txt / conda install -r requirements.txt
  * Chrome浏览器需要Chrome driver。在Chrome网址栏中输入[Chrome://version](Chrome://version)查看版本，在
- [Chrome Driver下载地址](http://chromedriver.storage.googleapis.com/index.html)下载对应版本（最接近）的Driver，并将chromedriver对应的文件夹路径加入系统变量Path；推荐放在Chrome.exe的文件夹下。（Selenium默认支持Firefox，Chrome需安装对应driver）
+ [Chrome Driver下载地址](http://chromedriver.storage.googleapis.com/index.html)下载对应版本（版本号__小于等于__你的Chrome版本且最接近）的Driver，__放在Python安装路径文件夹内（如 /Program Files(x86)/Python36/ 路径下）和Chrome.exe的文件夹下__，把Chrome的文件夹路径加入系统变量Path。（Selenium默认支持Firefox，Chrome需安装对应driver）
  * 对于部分库(pyHook)，Python3 pip可能无法安装，请下载使用[whl文件](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyHook)安装（或者使用conda安装）（现在pyHook文件夹为大家提供了1.5.1版本x64的安装包，请自行选用）
  
  ## 功能介绍
