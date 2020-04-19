@@ -9,7 +9,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
   * 2020.04.19：近期可能的更新预告
 	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线
 	 
-	 ![image](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
+	 ![image](https://raw.githubusercontent.com/pydxflwb/KeyAssistant/master/github_gif/fufu.gif)
 	
 	2.关于jaccount密码输入时的保密选项问题
 	
