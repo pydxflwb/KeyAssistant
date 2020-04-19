@@ -7,7 +7,8 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 
  ## 最新更新
   * 2020.04.19：近期可能的更新预告
-	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 [查看fufu](https://github.com/pydxflwb/KeyAssistant/tree/master/github_video/fufu.mp4)
+	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 
+	<video src="https://github.com/pydxflwb/KeyAssistant/tree/master/github_video/fufu.mp4" controls="controls" width="500" height="300">QAQ 您的浏览器不支持看fufu，请到文件里下载视频吧</video>
 		
 	2.关于jaccount密码输入时的保密选项问题
 	
@@ -99,7 +100,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
                         所以请耐心等待连接，或者直接关闭程序，检查Zoom状况后再运行
 
  * 2020.04.19：近期可能的更新预告
-	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 [查看fufu](https://github.com/pydxflwb/KeyAssistant/tree/master/github_video/fufu.mp4)
+	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 [fufu视频文件](https://github.com/pydxflwb/KeyAssistant/tree/master/github_video/fufu.mp4)
 		
 	2.关于jaccount密码输入时的保密选项问题
 	
