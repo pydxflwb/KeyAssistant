@@ -11,7 +11,7 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 	
 	1.可爱fufu来了！
 	
-	![image](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
+	![image](https://raw.githubusercontent.com/pydxflwb/KeyAssistant/master/github_gif/fufu.gif)
 	
 	2.jaccount密码保密设置已经更新！
 
