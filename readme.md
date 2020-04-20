@@ -6,13 +6,14 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 
 
  ## 最新更新
-  * 2020.04.19：近期可能的更新预告
-	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线
-	 ![image](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
+  
+  * 2020.04.20： 
 	
-	2.关于jaccount密码输入时的保密选项问题
+	1.可爱fufu来了！
 	
-	3.使用QThread线程继续优化用户交互的问题  
+	![image](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
+	
+	2.jaccount密码保密设置已经更新！
 
  ## 运行环境及库依赖
  （目前仅适用于Windows 10系统，使用Mac的同学实在抱歉）
@@ -100,13 +101,19 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
                         所以请耐心等待连接，或者直接关闭程序，检查Zoom状况后再运行
 
  * 2020.04.19：近期可能的更新预告
-	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 [点我看fufu](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
-		
+	
+	1.一键按钮增加了一只可爱的初音fufu！开发完成后续一并上线 
+	
 	2.关于jaccount密码输入时的保密选项问题
 	
 	3.使用QThread线程继续优化用户交互的问题
   
-  
+ * 2020.04.20： 
+	
+	1.可爱fufu来了！
+	[点我看fufu](https://github.com/pydxflwb/KeyAssistant/tree/master/github_gif/fufu.gif)
+	
+	2.jaccount密码保密设置已经更新！
   
  ## 联系作者
  肖 鹏宇  (pydxflwb@sjtu.edu.cn)
@@ -118,6 +125,6 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
    * Xin Yuan（test and debug）
    
   
- 本文档最近更新日期: April 19 2020
+ 本文档最近更新日期: April 20 2020
  
  License: MIT License

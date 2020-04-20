@@ -16,11 +16,9 @@ class InfoRequestWidget(QWidget):
     def initUI(self):
         # Layout
         self.Layout = QVBoxLayout()
-
         # Input Lines
         self.UserName = SingleInputWidget("Username")
         self.PassWord = SingleInputWidget("Password")
-        # self.PassWord.Edit.setEchoMode(2)
         self.Layout.addWidget(self.UserName)
         self.Layout.addWidget(self.PassWord)
 
@@ -38,6 +36,13 @@ class InfoRequestWidget(QWidget):
         self.Br.setLayout(self.comboLayout)
         self.Layout.addWidget(self.Br)
 
+        #Checkbox
+        self.passlabel = QLabel("显示密码")
+        self.passcheckbox = QCheckBox()
+        self.passcheckbox.setCheckState(0)
+        self.PassWord.Edit.setEchoMode(QLineEdit.Password)
+        self.passcheckbox.clicked.connect(self.checkPass)
+
         # Buttons
         self.nextButton = QPushButton("Next")
         self.nextButton.setFont(QFont("Consolas", 9))
@@ -49,7 +54,9 @@ class InfoRequestWidget(QWidget):
 
         # Buttons Layout
         self.buttonLayout = QHBoxLayout()
-        self.buttonLayout.addStretch(1)
+
+        self.buttonLayout.addWidget(self.passlabel)
+        self.buttonLayout.addWidget(self.passcheckbox)
         self.buttonLayout.addWidget(self.nextButton)
         self.buttonLayout.addWidget(self.cancelButton)
 
@@ -77,7 +84,12 @@ class InfoRequestWidget(QWidget):
 
     def closeDock(self):
         self.signal_cancel.emit(True)
-            
+
+    def checkPass(self):
+        if self.passcheckbox.checkState() == 0:
+            self.PassWord.Edit.setEchoMode(QLineEdit.Password)
+        if self.passcheckbox.checkState() == 2:
+            self.PassWord.Edit.setEchoMode(QLineEdit.Normal)
 
 
 # A Self-Defined Input Widget Template (More arguments excepted)
@@ -98,8 +110,6 @@ class SingleInputWidget(QWidget):
 
     def returnText(self):
         return self.Edit.text()
-
-    
 
 
 if __name__ == "__main__":
