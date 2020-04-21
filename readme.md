@@ -17,10 +17,10 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 
  ## 运行环境及库依赖
  （目前仅适用于Windows 10系统，使用Mac的同学实在抱歉）
- * Python 3.5, 3.6, 3.7（推荐3.6.x）
+ * Python 3.5, 3.6, 3.7（推荐3.6.x）稳定可用，其余版本不保证可用性
  * selenium
  * requests	 
- * PyQt5 5.13.x以上
+ * PyQt5
  * baidu-aip (百度提供的OCR接口)
  * Pywin32
  * pyautogui
