@@ -7,13 +7,18 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 
  ## 最新更新
   
-  * 2020.04.20： 
+  * 2020.04.26：
+  	
+	第九周到来，目前程序发现的需要修改的几个bug：
+		
+	1.无法更新课表
 	
-	1.可爱fufu来了！
+	2.结课的课程不会消失
 	
-	![image](https://raw.githubusercontent.com/pydxflwb/KeyAssistant/master/github_gif/fufu.gif)
+	3.多线程需求强烈
 	
-	2.jaccount密码保密设置已经更新！
+	我会尽快做出修改
+	
 
  ## 运行环境及库依赖
  （目前仅适用于Windows 10系统，使用Mac的同学实在抱歉）
@@ -115,6 +120,18 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
 	
 	2.jaccount密码保密设置已经更新！
   
+  * 2020.04.26：
+  	
+	第九周到来，目前程序发现的需要修改的几个bug：
+		
+	1.无法更新课表
+	
+	2.结课的课程不会消失
+	
+	3.多线程需求强烈
+	
+	我会尽快做出修改
+  
  ## 联系作者
  肖 鹏宇  (pydxflwb@sjtu.edu.cn)
  欢迎提交issue! 欢迎使用和改进！
@@ -125,6 +142,6 @@ _一键网课助手_ 是一个帮助SJTU学生快速登录Zoom平台含密码会
    * Xin Yuan（test and debug）
    
   
- 本文档最近更新日期: April 20 2020
+ 本文档最近更新日期: April 26 2020
  
  License: MIT License
