@@ -99,7 +99,7 @@ def store_curricular_data(curri_data, file):
             if curri_line:
                 for curri in curri_line:
                     try:
-                        room_num = curri[7].split("；")[1]  # 这句提前用于验证try
+                        room_data = curri[7].split("会议号")[1]  # 这句提前用于验证try
 
                         display_curri = []
                         display_curri.append(curri[1])  # 课程名 curri name
@@ -111,9 +111,10 @@ def store_curricular_data(curri_data, file):
                         display_curri.append(curri[2])  # 时间段 curri timespan
                         display_curri.append(curri[-1])  # 学分 credit
 
+                        room_num = room_data.split("；")[0]
                         room_num = room_num.split("：")[1]
                         display_curri.append(room_num)  # 会议号 room number
-                        room_pswd = curri[7].split("；")[2]
+                        room_pswd = room_data.split("；")[1]
                         room_pswd = room_pswd.split("：")[1]
                         display_curri.append(room_pswd)  # 会议密码 room password
 
